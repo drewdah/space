@@ -1,6 +1,2 @@
-Add scrolling viewport
-Add ship parts ( engine thrust fire, guns )
-Add level config object and decide on format
-Add collideable surfaces to level
-Add physics ( velocity, drag, drift, gravity )
-
+Add scrolling viewportAdd ship parts ( engine thrust fire, guns )Add level config object and decide on formatAdd collideable surfaces to levelAdd physics ( velocity, drag, drift, gravity )
+
