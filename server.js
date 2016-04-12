@@ -17,7 +17,6 @@ app.get('/', function (req, res) {
 	});
 });
 
-var server_port = process.env.WEBPORT || 8080;
-var server_ip_address = process.env.WEBIP || '127.0.0.1';
+var server_port = process.env.PORT || 8080;
 
-app.listen(server_port, server_ip_address);
+app.listen(server_port);
