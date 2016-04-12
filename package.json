@@ -1,0 +1,25 @@
+{
+	"name": "space",
+	"version": "1.0.0",
+	"description": "Solar Jetman-style space combat game",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/drewdah/space.git"
+	},
+	"author": "Drew Lawton",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/drewdah/space/issues"
+	},
+	"homepage": "https://github.com/drewdah/space#readme",
+	"dependencies": {
+		"express" : "*",
+		"express-handlebars" : "*",
+		"request" : "*"
+	}
+
+}
