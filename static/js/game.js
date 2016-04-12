@@ -1,12 +1,12 @@
 /*
 	Game Engine
 */
-function GameEngine()
+function GameEngine(viewport)
 {
 	this.entities = [];
 
 	// Grab the viewport context
-	this.viewport = new ViewPort();
+	this.viewport = viewport;
 	this.screen = this.viewport.canvas.getContext("2d");
 
 	this.scale = 1;

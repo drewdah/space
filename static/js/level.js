@@ -22,7 +22,7 @@ Level.inheritsFrom( Entity );
 
 Level.prototype.update = function()
 {
-	var offsetX = game.viewport.center.x - game.currentPlayer.x;
+	/*var offsetX = game.viewport.center.x - game.currentPlayer.x;
 	var offsetY = game.viewport.center.y - game.currentPlayer.y;
 
 	if(game.currentPlayer.x > game.viewport.center.x){
@@ -34,7 +34,7 @@ Level.prototype.update = function()
 	}
 
 	this.offsetX = -(game.currentPlayer.x - game.viewport.center.x);
-	this.offsetY = -(game.currentPlayer.y - game.viewport.center.y);
+	this.offsetY = -(game.currentPlayer.y - game.viewport.center.y);*/
 };
 
 Level.prototype.draw = function()

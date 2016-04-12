@@ -1,5 +1,6 @@
+var viewport = new ViewPort("screen", 800, 600);
 var assetMgr = new AssetManager();
-var game = new GameEngine();
+var game = new GameEngine(viewport);
 
 window.onload = function()
 {

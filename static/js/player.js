@@ -90,6 +90,8 @@ Player.prototype.thrust = function( speed )
 		this.setLocation(x,y);
 	}
 
+	assetMgr.sounds['ship_thrust'].play({ volume: 50 });
+
 	//console.log(game.currentLevel.offsetX, game.currentLevel.offsetY, game.currentPlayer.x, game.currentPlayer.y);
 };
 
