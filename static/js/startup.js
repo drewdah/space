@@ -1,5 +1,5 @@
-var viewport = new ViewPort("screen", 800, 600);
 var assetMgr = new AssetManager();
+var viewport = new ViewPort("screen", 800, 600);
 var game = new GameEngine(viewport);
 
 window.onload = function()
@@ -19,11 +19,14 @@ window.onload = function()
 			// Create a player
 			game.createPlayer();
 
+			// Create the camera
+			game.createCamera(viewport);
+
 			// Start the game
 			game.start();
 
 			// Play level music
-			assetMgr.sounds['music3'].play({ loops: 10 });
+			assetMgr.sounds['music3'].play();
 
 		});
 

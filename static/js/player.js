@@ -8,14 +8,18 @@ function Player()
 
 	this.turnSpeed = 5;
 	this.thrustSpeed = 8;
+	this.thrusting = false;
 
 	this.asset = assetMgr.assets['ship1'];
 
 	this.sprite = this.asset;
 
+	this.height = 80;
+	this.width = 80;
+
 	this.cacheCanvas = document.createElement('canvas');
-    this.cacheCanvas.width = 80;
-    this.cacheCanvas.height = 80;
+    this.cacheCanvas.width = this.height;
+    this.cacheCanvas.height = this.width;
 
 	this.cacheContext = this.cacheCanvas.getContext('2d');
 
@@ -40,6 +44,14 @@ Player.prototype.update = function()
 
 	// Respond to key events
 	this.checkInput();
+
+	if(this.thrusting){
+		if(!assetMgr.sounds['ship_thrust'].playing()){
+			assetMgr.sounds['ship_thrust'].play();
+		}
+	} else {
+		assetMgr.sounds['ship_thrust'].stop();
+	}
 };
 
 Player.prototype.checkInput = function()
@@ -60,6 +72,8 @@ Player.prototype.checkInput = function()
 	if( game.keys['32'] || game.keys['38'])
 	{
 		this.thrust(this.thrustSpeed);
+	} else {
+		this.thrusting = false;
 	}
 };
 
@@ -86,11 +100,15 @@ Player.prototype.thrust = function( speed )
 	var x = this.x + speed * Math.sin(this.heading * Math.PI/180);
     var y = this.y - speed * Math.cos(this.heading * Math.PI/180);
 
-	if(game.currentLevel.isWithinBoundary(x,y) && game.currentLevel.isWithinBoundary(x + 80,y + 80)){
+    if(game.currentLevel.isWithinBoundary(x + this.width, y + this.height)){
+		this.thrusting = true;
 		this.setLocation(x,y);
+		
+		if(!game.camera.isWithinBoundary(x, y)){
+			game.camera.setPosition(game.camera.x + this.width, game.camera.y + this.height);
+			console.log(game.camera.x, game.camera.y);
+		}
 	}
-
-	assetMgr.sounds['ship_thrust'].play({ volume: 50 });
 };
 
 Player.prototype.rotateAndCache = function(image, angle)

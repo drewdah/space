@@ -166,3 +166,7 @@ GameEngine.prototype.setLevel = function( level )
 {
 	this.currentLevel = level;
 };
+
+GameEngine.prototype.createCamera = function() {
+	this.camera = new Camera(this.viewport)
+}

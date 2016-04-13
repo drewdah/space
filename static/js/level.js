@@ -3,8 +3,8 @@
 */
 function Level( id )
 {
-	this.width = 1600;
-	this.height = 1200;
+	this.width = 1024;
+	this.height = 768;
 
 	this.background = assetMgr.assets['background' + id];
 
@@ -22,19 +22,8 @@ Level.inheritsFrom( Entity );
 
 Level.prototype.update = function()
 {
-	/*var offsetX = game.viewport.center.x - game.currentPlayer.x;
-	var offsetY = game.viewport.center.y - game.currentPlayer.y;
-
-	if(game.currentPlayer.x > game.viewport.center.x){
-		this.offsetX = offsetX;
-	}
-
-	if(game.currentPlayer.y > game.viewport.center.y){
-		this.offsetY = offsetY;
-	}
-
-	this.offsetX = -(game.currentPlayer.x - game.viewport.center.x);
-	this.offsetY = -(game.currentPlayer.y - game.viewport.center.y);*/
+	this.offsetX = -game.camera.x;
+	this.offsetY = -game.camera.y;
 };
 
 Level.prototype.draw = function()
