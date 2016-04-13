@@ -105,8 +105,27 @@ Player.prototype.thrust = function( speed )
 		this.setLocation(x,y);
 		
 		if(!game.camera.isWithinBoundary(x, y)){
-			game.camera.setPosition(game.camera.x + this.width, game.camera.y + this.height);
-			console.log(game.camera.x, game.camera.y);
+
+			// North
+			if((this.heading > 315 && this.heading <= 360 ) ||	(this.heading > 0 && this.heading <= 45)){
+				game.camera.setY(game.camera.y - speed);
+			}
+
+			// East
+			if(this.heading > 45 && this.heading <= 135){
+				game.camera.setX(game.camera.x + speed);
+			}
+
+			// South
+			if(this.heading > 135 && this.heading <= 225){
+				game.camera.setY(game.camera.y + speed);
+			}
+
+			// West
+			if(this.heading > 225 && this.heading <= 315){
+				game.camera.setX(game.camera.x - speed);
+			}
+
 		}
 	}
 };

@@ -7,11 +7,13 @@ function Camera(viewport)
 	this.setDimensions(this.viewport.height, this.viewport.width);
 	this.setPosition(0, 0);
 
+	this.buffer = 200;
+
 	this.hitbox = [
-		{ x: this.x, y: this.y },
-		{ x: this.width, y: this.y },
-		{ x: this.width, y: this.height },
-		{ x: this.x, y: this.height }
+		{ x: this.x + this.buffer, y: this.y + this.buffer},
+		{ x: this.width - this.buffer, y: this.y + this.buffer },
+		{ x: this.width - + this.buffer, y: this.height - this.buffer },
+		{ x: this.x + this.buffer, y: this.height - this.buffer }
 	];
 }
 Camera.inheritsFrom(Entity);
@@ -21,10 +23,7 @@ Camera.prototype.update = function() {
 }
 
 Camera.prototype.draw = function() {
-	// Red rectangle
-	game.screen.beginPath();
-	game.screen.rect(this.x,this.y,this.width,this.height); 
-	game.screen.stroke();
+
 }
 
 Camera.prototype.setViewPort = function(viewport) {
@@ -32,7 +31,15 @@ Camera.prototype.setViewPort = function(viewport) {
 }
 
 Camera.prototype.setPosition = function(x, y) {
+	this.setX(x);
+	this.setY(y);
+}
+
+Camera.prototype.setX = function(x) {
 	this.x = x;
+}
+
+Camera.prototype.setY = function(y) {
 	this.y = y;
 }
 

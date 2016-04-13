@@ -3,8 +3,11 @@
 */
 function Level( id )
 {
-	this.width = 1024;
-	this.height = 768;
+	this.x = 0;
+	this.y = 0;
+
+	this.width = 1600;
+	this.height = 1200;
 
 	this.background = assetMgr.assets['background' + id];
 
@@ -22,13 +25,13 @@ Level.inheritsFrom( Entity );
 
 Level.prototype.update = function()
 {
-	this.offsetX = -game.camera.x;
-	this.offsetY = -game.camera.y;
+	this.x = -game.camera.x;
+	this.y = -game.camera.y;
 };
 
 Level.prototype.draw = function()
 {
-	game.screen.drawImage( this.background, this.offsetX, this.offsetY, this.width, this.height);
+	game.screen.drawImage( this.background, this.x, this.y, this.width, this.height );
 };
 
 Level.prototype.isWithinBoundary = function( x, y )
