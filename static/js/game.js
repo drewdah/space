@@ -51,7 +51,7 @@ GameEngine.prototype.showLoadingScreen = function()
 			screen.drawImage( this, 0, 0, 800, 600 );
 		}
 
-	}(this.screen)
+	}(this.screen);
 	img.src = "assets/loading.jpg";
 };
 
@@ -75,7 +75,7 @@ GameEngine.prototype.startInput = function()
 		{
 			var lastPressedTime = new Date().getTime() - _this.keysHistory[e.keyCode];
 
-			var doublePress = ( lastPressedTime < 200 ) ? true : false;
+			var doublePress = ( lastPressedTime < 200 );
 
 			// Mark the key as pressed
 			_this.keys[e.keyCode] = { ctrl : e.ctrlKey, shift : e.shiftKey, doublePress: doublePress };
